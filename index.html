@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Predict cancer cell senstivity</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <div class="main">
+            <div class="prediction">
+                <h2>Enter Data for Prediction</h2>
+                <form id="predict" action="/predict" method="post">
+                    <label>Cosmic ID : </label>
+                    <input type="number" name="cosmic" id="cosmic" placeholder="Enter Cosmic Id of cell">
+                    <br><br>
+                    <label>Drug ID : </label>
+                    <input type="number" name="drug" id="drug" placeholder="Enter Drug Id">
+                    <br><br>
+                    <label>TCGA_Classification : </label>
+                    <select id="tcga" name="tcga">
+                        <option value="default" disabled selected>Select the classification type</option>
+                        <option value="UNCLASSIFIED">UNCLASSIFIED</option>
+                        <option value="BLCA">BLCA</option>
+                        <option value="STAD">STAD</option>
+                        <option value="PRAD">PRAD</option>
+                        <option value="GBM">GBM</option>
+                        <option value="SKCM">SKCM</option>
+                        <option value="KIRC">KIRC</option>
+                        <option value="THCA">THCA</option>
+                        <option value="DLBC">DLBC</option>
+                        <option value="LUAD">LUAD</option>
+                        <option value="ALL">ALL</option>
+                        <option value="MM">MM</option>
+                        <option value="UCEC">UCEC</option>
+                        <option value="PAAD">PAAD</option>
+                        <option value="BRCA">BRCA</option>
+                        <option value="HNSC">HNSC</option>
+                        <option value="NB">NB</option>
+                        <option value="LCML">LCML</option>
+                        <option value="COREAD">COREAD</option>
+                        <option value="CESC">CESC</option>
+                        <option value="LIHC">LIHC</option>
+                        <option value="OV">OV</option>
+                        <option value="LAML">LAML</option>
+                        <option value="SCLC">SCLC</option>
+                        <option value="ESCA">ESCA</option>
+                        <option value="MB">MB</option>
+                        <option value="LGG">LGG</option>
+                        <option value="LUSC">LUSC</option>
+                        <option value="MESO">MESO</option>
+                        <option value="CLL">CLL</option>
+                        <option value="ACC">ACC</option>
+                        <option value="OTHER">OTHER</option>
+                      </select>
+                    <br><br>
+                    <label>PSA : </label>
+                    <input type="number" name="psa" id="psa" placeholder="Polar surface area of drug">
+                    <br><br>
+                    <label>Tissue : </label>
+                    <select id="tissue" name="tissue">
+                        <option value="default" disabled selected>Select the Tissue Type</option>
+                        <option value="blood">blood</option>
+                        <option value="urogenital_system">urogenital_system</option>
+                        <option value="digestive_system">digestive_system</option>
+                        <option value="nervous_system">nervous_system</option>
+                        <option value="skin">skin</option>
+                        <option value="kidney">kidney</option>
+                        <option value="thyroid">thyroid</option>
+                        <option value="soft_tissue">soft_tissue</option>
+                        <option value="aero_digestive_tract">aero_digestive_tract</option>
+                        <option value="lung">lung</option>
+                        <option value="pancreas">pancreas</option>
+                        <option value="breast">breast</option>
+                        <option value="bone">bone</option>
+                      </select>
+                    <br><br>
+                    <label>Tissue sub-type : </label>
+                    <select id="tissue_sub-type" name="tissue_sub-type">
+                        <option value="default" disabled selected>Select the Tissue sub-type</option>
+                        <option value="lymphoblastic_leukemia">lymphoblastic_leukemia</option>
+                        <option value="bladder">bladder</option>
+                        <option value="prostate">prostate</option>
+                        <option value="stomach">stomach</option>
+                        <option value="glioma">glioma</option>
+                        <option value="melanoma">melanoma</option>
+                        <option value="kidney">kidney</option>
+                        <option value="thyroid">thyroid</option>
+                        <option value="rhabdomyosarcoma">rhabdomyosarcoma</option>
+                        <option value="head_and_neck">head_and_neck</option>
+                        <option value="ovary">ovary</option>
+                        <option value="skin_other">skin_other</option>
+                        <option value="B_cell_lymphoma">B_cell_lymphoma</option>
+                        <option value="lung_NSCLC_not_specified">lung_NSCLC_not_specified</option>
+                        <option value="lung_NSCLC_adenocarcinoma">lung_NSCLC_adenocarcinoma</option>
+                        <option value="T_cell_leukemia">T_cell_leukemia</option>
+                        <option value="haematopoietic_neoplasm_other">haematopoietic_neoplasm_other</option>
+                        <option value="endometrium">endometrium</option>
+                        <option value="myeloma">myeloma</option>
+                        <option value="pancreas">pancreas</option>
+                        <option value="lymphoblastic_T_cell_leukaemia">lymphoblastic_T_cell_leukaemia</option>
+                        <option value="breast">breast</option>
+                        <option value="B_cell_leukemia">B_cell_leukemia</option>
+                        <option value="neuroblastoma">neuroblastoma</option>
+                        <option value="Burkitt_lymphoma">Burkitt_lymphoma</option>
+                        <option value="hairy_cell_leukaemia">hairy_cell_leukaemia</option>
+                        <option value="chronic_myeloid_leukaemia">chronic_myeloid_leukaemia</option>
+                        <option value="large_intestine">large_intestine</option>
+                        <option value="cervix">cervix</option>
+                        <option value="liver">liver</option>
+                        <option value="ewings_sarcoma">ewings_sarcoma</option>
+                        <option value="osteosarcoma">osteosarcoma</option>
+                        <option value="chondrosarcoma">chondrosarcoma</option>
+                        <option value="acute_myeloid_leukaemia">acute_myeloid_leukaemia</option>
+                        <option value="lung_small_cell_carcinoma">lung_small_cell_carcinoma</option>
+                        <option value="oesophagus">oesophagus</option>
+                        <option value="lung_NSCLC_large_cell">lung_NSCLC_large_cell</option>
+                        <option value="lung_other">lung_other</option>
+                        <option value="bone_other">bone_other</option>
+                        <option value="medulloblastoma">medulloblastoma</option>
+                        <option value="lymphoid_neoplasm_other">lymphoid_neoplasm_other</option>
+                        <option value="lung_NSCLC_squamous_cell_carcinoma">lung_NSCLC_squamous_cell_carcinoma</option>
+                        <option value="biliary_tract">biliary_tract</option>
+                        <option value="soft_tissue_other">soft_tissue_other</option>
+                        <option value="Hodgkin_lymphoma">Hodgkin_lymphoma</option>
+                        <option value="fibrosarcoma">fibrosarcoma</option>
+                        <option value="digestive_system_other">digestive_system_other</option>
+                        <option value="mesothelioma">mesothelioma</option>
+                        <option value="urogenital_system_other">urogenital_system_other</option>
+                        <option value="anaplastic_large_cell_lymphoma">anaplastic_large_cell_lymphoma</option>
+                        <option value="leukemia">leukemia</option>
+                        <option value="uterus">uterus</option>
+                        <option value="testis">testis</option>
+                        <option value="lung_NSCLC_carcinoid">lung_NSCLC_carcinoid</option>
+                        <option value="adrenal_gland">adrenal_gland</option>
+                      </select>
+                    <br><br>
+                    <label>Is Mutated : </label>
+                    <select id="is_mutated" name="is_mutated">
+                        <option value="default" disabled selected>Select Cell Mutation(either 0/1)</option>
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                      </select>
+                    <br><br>
+                    <input type = "submit" value = "submit" name = "submit" id="submit">
+                    <br><br>
+                    {{ prediction_text }}
+                </form>
+            </div>
+        </div>
+    </body>
+</html>
