@@ -32,7 +32,7 @@ This repository contains the necessary code, data sets, and documentation for de
 
 1. Clone the repository to your local machine.
    bash
-   git clone https://github.com/your-username/cancer-treatment-prediction.git
+   git clone https://github.com/prthmeshh/Cancer-Cell-Sensitivity.git
    
 
 2. Install the required dependencies by following the instructions in the documentation (docs/).
